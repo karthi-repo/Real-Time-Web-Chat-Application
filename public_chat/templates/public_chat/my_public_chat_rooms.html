@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+	<!-- MEDIUM+ SCREENS -->
+	<div class="main d-none d-md-flex flex-column">
+        <legend>&nbspPublic-Chat-Rooms created by <b>{{user.username}}</b></legend><br>
+		{% for room in rooms %}
+			<div class="card">
+				<div class="card-header">
+					<legend>{{room.title}}</legend>
+				</div>
+				<div class="card-body">
+					<blockquote class="blockquote mb-0">
+						<p>{{room.description}}</p>
+						<footer class="blockquote-footer">Created by <a href="{% url 'account:view' user_id=room.author.id %}">{{room.author}}</a></footer>
+					</blockquote><br>
+					<a href="{% url 'public-chat:view' room_id=room.id %}" class="btn btn-secondary">Join Room</a>
+					{% if user.id == room.author.id %}
+						<a href="{% url 'public-chat:delete' room_id=room.id %}" class="btn btn-danger">Delete Room</a>
+					{% endif %}
+				</div>
+			</div><br>	
+		{% endfor %}
+
+	</div>
+	<!-- END MEDIUM+ SCREENS -->
+	
+	<!-- SMALL SCREENS -->
+	<div class="d-flex d-md-none p-2">
+		<p>This site is not meant to be viewed on a mobile device. Please download the <a href="#">app</a>.</p>
+	</div>
+	<!-- END SMALL SCREENS -->
+</div>
+
+{% endblock content %}

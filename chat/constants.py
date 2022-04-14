@@ -1,0 +1,3 @@
+DEFAULT_ROOM_CHAT_MESSAGE_PAGE_SIZE = 10
+
+MSG_TYPE_MESSAGE = 0 # For standard messages
