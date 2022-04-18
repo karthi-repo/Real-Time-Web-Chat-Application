@@ -1,2 +1,0 @@
-# Open-Chat-master
- Socio
