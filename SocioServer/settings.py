@@ -34,6 +34,7 @@ AUTH_USER_MODEL = 'account.Account'
 AUTHENTICATION_BACKENDS = ( 
     'django.contrib.auth.backends.AllowAllUsersModelBackend', 
     'account.backends.CaseInsensitiveModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
     )
 
 # Application definition
@@ -88,14 +89,7 @@ WSGI_APPLICATION = 'SocioServer.wsgi.application'
 
 ASGI_APPLICATION = 'SocioServer.routing.application'
 
-#CHANNEL_LAYERS = {
- #   'default': {
-    #    'BACKEND': 'channels_redis.core.RedisChannelLayer',
-    #    'CONFIG': {
-    #        "hosts": [('127.0.0.1', 6379)],
-    #    },
-   # },
-#}
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"

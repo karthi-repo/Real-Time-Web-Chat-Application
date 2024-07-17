@@ -16,6 +16,7 @@ import json
 import base64
 import requests
 from django.core import files
+from django.core.mail import send_mail
 
 TEMP_PROFILE_IMAGE_NAME = 'temp_profile_image.png'
 
@@ -50,8 +51,12 @@ def RegisterView(request, *args, **kwargs):
             return redirect('home')
         else:
             context['registration_form'] = form
+
             
     return render(request, 'account/register.html', context)
+
+
+    
 
 def LoginView(request, *args, **kwargs):
     context = {

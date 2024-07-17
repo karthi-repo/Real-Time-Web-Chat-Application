@@ -1,0 +1,7 @@
+import smtplib
+s = smtplib.SMTP('smtp.gmail.com', 587)
+s.starttls()
+s.login("socialise.with.socio@gmail.com", "2632kAr*&")
+message = "Welocme to Socio"
+s.sendmail("socialise.with.socio@gmail.com", "karthi2002m@gmail.com", message)
+s.quit()

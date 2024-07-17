@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.db.models import fields
 from account.models import Account
+import smtplib
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=255, help_text="Required. Add a valid email address.")
